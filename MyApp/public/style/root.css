@@ -1,0 +1,9 @@
+@import './dejaVu.css';
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+img{
+    width: 50vw;
+}

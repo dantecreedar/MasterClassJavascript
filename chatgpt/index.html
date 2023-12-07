@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Juego de Terror</title>
+  <style>
+    body { margin: 0; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://threejs.org/build/three.js"></script>
+  <script>
+    // Variables globales
+    let camera, scene, renderer;
+    let clock, delta;
+    let player, playerControls;
+
+    // Función para inicializar el juego
+    function init() {
+      // Crear la escena
+      scene = new THREE.Scene();
+
+      // Crear la cámara
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+
+      // Crear un renderizador
+      renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      // Crear un reloj para el control del tiempo
+      clock = new THREE.Clock();
+
+      // Crear un jugador
+      const playerGeometry = new THREE.BoxGeometry(1, 1, 1);
+      const playerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      player = new THREE.Mesh(playerGeometry, playerMaterial);
+      scene.add(player);
+
+      // Crear los controles del jugador
+      playerControls = {
+        moveForward: false,
+        moveBackward: false,
+        moveLeft: false,
+        moveRight: false
+      };
+
+      // Eventos de teclado
+      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keyup', handleKeyUp);
+    }
+
+    // Función para manejar el evento de tecla presionada
+    function handleKeyDown(event) {
+      const keyCode = event.keyCode;
+
+      switch (keyCode) {
+        case 87: // W
+          playerControls.moveForward = true;
+          break;
+        case 83: // S
+          playerControls.moveBackward = true;
+          break;
+        case 65: // A
+          playerControls.moveLeft = true;
+          break;
+        case 68: // D
+          playerControls.moveRight = true;
+          break;
+      }
+    }
+
+    // Función para manejar el evento de tecla liberada
+    function handleKeyUp(event) {
+      const keyCode = event.keyCode;
+
+      switch (keyCode) {
+        case 87: // W
+          playerControls.moveForward = false;
+          break;
+        case 83: // S
+          playerControls.moveBackward = false;
+          break;
+        case 65: // A
+          playerControls.moveLeft = false;
+          break;
+        case 68: // D
+          playerControls.moveRight = false;
+          break;
+      }
+    }
+
+    // Función para actualizar el estado del juego
+    function update() {
+      // Calcular el tiempo transcurrido desde el último fotograma
+      delta = clock.getDelta();
+
+      // Actualizar la posición del jugador según los controles
+      const playerSpeed = 2;
+      if (playerControls.moveForward) player.position.z -= playerSpeed * delta;
+      if (playerControls.moveBackward) player.position.z += playerSpeed * delta;
+      if (playerControls.moveLeft) player.position.x -= playerSpeed * delta;
+      if (playerControls.moveRight) player.position.x += playerSpeed * delta;
+    }
+
+    // Función para renderizar la escena
+    function render() {
+      renderer.render(scene, camera);
+    }
+
+    // Función para animar el juego
+    function animate() {
+      requestAnimationFrame(animate);
+      update();
+      render();
+    }
+
+    // Inicializar el juego y comenzar la animación
+    init();
+    animate();
+  </script>
+</body>
+</html>

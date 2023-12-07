@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    flex-direction:column;
+    width: 20vw;
+}
+
+button{
+    margin: 5px;
+    padding: 5px;
+}

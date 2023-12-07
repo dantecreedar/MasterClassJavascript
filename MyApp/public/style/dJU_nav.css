@@ -1,0 +1,151 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: calibri;
+}
+a {
+    text-decoration: none;
+}
+.dju_header {
+    background: rgb(78, 78, 211);
+    padding: 5px;  
+
+}
+/* span */
+#mySpan {
+    display: none;
+}
+.spanViews{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dju_nav {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    padding: 10px auto;
+    color :white;
+}
+
+/* fon span */
+.dju_nav li{
+    padding: 10px;
+}
+
+.dju_nav li:hover {
+    cursor: pointer;
+    transition: .3s ease all;
+}
+a {
+    color: black;
+}
+li:hover, a:hover {
+    background: rgb(185, 184, 184);
+    color: white;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 00;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    color: white;
+    outline: none;
+    transition: .3s ease all;
+}
+
+/* action nav */
+.dju_navGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  /*   border: 1px solid gray; */
+    background: #fff;
+    box-shadow: 8px 0px 30px rgba(221,221,221,0.3);
+
+}
+
+.dju_uLi {
+    display: flex;
+    justify-content: end;
+  /*   border: 1px solid gray; */
+}
+
+i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icono {
+    display: none;
+    /* border: 1px solid gray; */
+}
+.dju_navLi {
+    list-style: none;
+    padding: 20px;
+    /* border: 1px solid gray; */
+    background: #fff;
+}
+/* md */
+@media (max-width: 768px){
+    .icono {
+        display: flex;
+    }
+    .dju_uLi {
+        justify-content: start;
+        padding: 5px;
+        margin: auto;
+    }
+    .dju_uListView {
+        display: none;
+        
+    }
+    .dju_navGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* sm */
+@media (max-width: 576px){
+    .dju_nav {
+        display: block;
+    }
+    i {
+        padding: 10px;
+    }
+    .icono {
+        display: flex;
+        padding: 5px;
+    }
+    .dju_uLi {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        text-align: end;
+        padding: 5px;
+        /* acomodar */
+        margin: 0;
+    } 
+
+    .dju_navGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .dju_uListView {
+        display: none;
+    }
+    
+}
+
+
+
+

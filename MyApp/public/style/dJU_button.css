@@ -1,0 +1,42 @@
+.dju_botonBlack {
+    background: #555557;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 3px;
+    line-height: 22px;
+    transition: .3s ease all;
+}
+
+.dju_botonBlack:hover {
+    background: #000000;
+}
+
+.boton.rojo {
+    background: rgb(247, 50, 50);
+}
+
+.boton.rojo:hover {
+    background: red;
+}
+.boton.azul {
+    background: rgb(33, 33, 243);
+}
+
+.boton.azul:hover {
+    background: blue;
+}
+
+.boton.alerta {
+    background: rgb(252, 185, 0);
+}
+
+.boton.alerta:hover {
+    background: orange;
+}
+
+.boton.redondo {
+    border-radius: 50px;
+}
